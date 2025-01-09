@@ -86,4 +86,14 @@ A history section displays the timestamps of my clicks.
 
 The history is updated in real-time as I click the button.
 
+##Use case
+Social Engagement Platform
+Objective:
+Create an engaging and interactive platform that encourages users to participate in a fun, collective activity, fostering a sense of community and competition.
 
+Target Audience:
+Social Media Enthusiasts: Individuals who enjoy participating in viral trends and social experiments.
+
+Gamers: People who enjoy simple games and challenges.
+
+Community Builders: Organizers looking to create a sense of camaraderie and engagement within their groups or organizations.
