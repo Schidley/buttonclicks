@@ -8,6 +8,15 @@
 <body>
     <h1>Welcome to the Button Clicking Project!</h1>
     <p>Click the button below to start the fun.</p>
-    <button>Click Me!</button>
+    <button id="clickButton">Click Me!</button>
+    <p>Button clicked <span id="clickCount">0</span> times.</p>
+
+    <script> // JavaScript to handle button clicks and update the count 
+     let clickCount = 0; 
+     const clickButton = document.getElementById('clickButton'); 
+     const clickCountDisplay = document.getElementById('clickCount'); 
+     clickButton.addEventListener('click', () => { clickCount++; clickCountDisplay.textContent = clickCount; }); 
+    console.log('Hello, World!');
+    </script>
 </body>
 </html>
