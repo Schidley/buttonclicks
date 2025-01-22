@@ -20,6 +20,7 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('clickapp.urls')),  # Ensure the app name is correct
+    path('', include('clickapp.urls')), 
 ]
+
 
