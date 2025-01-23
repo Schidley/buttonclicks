@@ -1,13 +1,35 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.forms import UserCreationForm
+from .models import Click
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
-from .models import Click
+from django.contrib.auth.forms import AuthenticationForm
 
+def register_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserCreationForm()
+    return render(request, 'register.html', {'form': form})
 
-# Create your views here.
-
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('/')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
 
 @login_required
 def index(request):
@@ -17,22 +39,6 @@ def index(request):
         click = Click.objects.create(user=request.user)
     return render(request, 'index.html', {'click_count': click.count})
 
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('/')
-    else:
-        form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
-
-
-
 @login_required
 def increment_click_count(request):
     if request.method == 'POST':
@@ -41,17 +47,3 @@ def increment_click_count(request):
         click.save()
         return JsonResponse({'click_count': click.count})
     return JsonResponse({'error': 'Invalid request'}, status=400)
-
-def login_view(request):
-    if request.method == 'POST':
-        form = AuthenticationForm(request, data=request.POST)
-        if form.is_valid():
-            username = form.cleaned_data.get('username')
-            password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('/')
-    else:
-        form = AuthenticationForm()
-    return render(request, 'login.html', {'form': form})
