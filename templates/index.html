@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,14 +11,29 @@
     <h1>Welcome to the Button Clicking Project!</h1>
     <p>Click the button below to start the fun.</p>
     <button id="clickButton">Click Me!</button>
-    <p>Button clicked <span id="clickCount">0</span> times.</p>
+    <p>Button clicked <span id="clickCount">{{ click_count }}</span> times.</p>
 
-    <script> // JavaScript to handle button clicks and update the count 
-     let clickCount = 0; 
-     const clickButton = document.getElementById('clickButton'); 
-     const clickCountDisplay = document.getElementById('clickCount'); 
-     clickButton.addEventListener('click', () => { clickCount++; clickCountDisplay.textContent = clickCount; }); 
-    console.log('Hello, World!');
+    <script>
+        const clickButton = document.getElementById('clickButton');
+        const clickCountDisplay = document.getElementById('clickCount');
+
+        clickButton.addEventListener('click', () => {
+            fetch("{% url 'increment_click_count' %}", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.click_count !== undefined) {
+                    clickCountDisplay.textContent = data.click_count;
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
     </script>
 </body>
 </html>
