@@ -29,8 +29,9 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['buttonclickerapp-692aa9d470e4.herokuapp.com' , 'localhost',]
+ALLOWED_HOSTS = ['buttonclickerapp-692aa9d470e4.herokuapp.com' , 'localhost','127.0.0.1',]
 
+CSRF_TRUSTED_ORIGINS = ['https://8000-schidley-buttonclicks-ap5qqk7g37n.ws.codeinstitute-ide.net']
 
 # Application definition
 
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
