@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Leaderboard</h1>
+    </header>
+    <div class="container content">
+        <table>
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Click Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in leaderboard_data %}
+                    <tr>
+                        <td>{{ entry.user.username }}</td>
+                        <td>{{ entry.count }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -79,3 +79,23 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+th, td {
+    padding: 12px 15px; /* Add padding to table cells */
+    border: 1px solid #ddd; /* Add a light border */
+    text-align: left; /* Align text to the left */
+}
+
+th {
+    background-color: #333; /* Set background color for header cells */
+    color: white; /* Set text clean color for header cells */
+    font-weight: bold; /* Make header text bold */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9; /* Add alternating row colors */
+}
+
+tr:hover {
+    background-color: #f1f1f1; /* Add hover effect */
+}

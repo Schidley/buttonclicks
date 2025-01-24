@@ -47,3 +47,9 @@ def increment_click_count(request):
         click.save()
         return JsonResponse({'click_count': click.count})
     return JsonResponse({'error': 'Invalid request'}, status=400)
+
+
+def leaderboard(request):
+    leaderboard_data = Click.objects.all().order_by('-count')
+    return render(request, 'leaderboard.html', {'leaderboard_data': leaderboard_data})
+

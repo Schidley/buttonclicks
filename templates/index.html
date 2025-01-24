@@ -13,6 +13,11 @@
     <p>Click the button below to start the fun.</p>
     <button id="clickButton">Click Me!</button>
     <p>Button clicked <span id="clickCount">{{ click_count }}</span> times.</p>
+    <p> 
+        <a href="{% url 'leaderboard' %}">Leaderboard</a> | 
+        <a href="{% url 'register' %}">Register</a> | 
+        <a href="{% url 'login' %}">Login</a> 
+    </p>
     </div>
 
     <script>

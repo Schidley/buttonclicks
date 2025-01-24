@@ -7,4 +7,5 @@ urlpatterns = [
     path('login/', views.login_view, name='login'),
     path('', views.index, name='index'),
     path('increment_click_count/', views.increment_click_count, name='increment_click_count'), 
+    path('leaderboard/', views.leaderboard, name='leaderboard'),
 ]
