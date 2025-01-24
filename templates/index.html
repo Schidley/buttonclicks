@@ -8,10 +8,12 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+    <div class="container content">
     <h1>Welcome to the Button Clicking Project!</h1>
     <p>Click the button below to start the fun.</p>
     <button id="clickButton">Click Me!</button>
     <p>Button clicked <span id="clickCount">{{ click_count }}</span> times.</p>
+    </div>
 
     <script>
         const clickButton = document.getElementById('clickButton');
