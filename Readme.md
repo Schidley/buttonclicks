@@ -91,7 +91,8 @@ Community Builders: Organizers looking to create a sense of camaraderie and enga
 While my project passes a click model, it does so by passing stringified JSON objects, complete with csrf tokens. A user and their clicks are strongly associated, and should there exist some method of taking
 clicks from another user, they would fail to be validated correctly. The code block that deals with this follows below - 
 
-` clickButton.addEventListener('click', () => {
+```
+ clickButton.addEventListener('click', () => {
             fetch("{% url 'increment_click_count' %}", {
                 method: 'POST',
                 headers: {
@@ -106,17 +107,20 @@ clicks from another user, they would fail to be validated correctly. The code bl
                     clickCountDisplay.textContent = data.click_count;
                 }
             })
-            .catch(error => console.error('Error:', error)); `
+            .catch(error => console.error('Error:', error));
+```
 
 ### Custom views - a novel method of incrementing
 
 While it may not be the most efficient way to increment a variable, as a demonstration of the flexibility of Django, a user's click count is incremented using the custom page view below -
 
-`def increment_click_count(request):
+```
+def increment_click_count(request):
     if request.method == 'POST':
         click, created = Click.objects.get_or_create(user=request.user)
         click.count += 1
         click.save()
         return JsonResponse({'click_count': click.count})
-    return JsonResponse({'error': 'Invalid request'}, status=400)`
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+```
     
