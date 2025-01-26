@@ -110,6 +110,8 @@ clicks from another user, they would fail to be validated correctly. The code bl
             .catch(error => console.error('Error:', error));
 ```
 
+This approach made it helpful to set a CSRF_TRUSTED_ORIGINS variable in settings.py
+
 ### Custom views - a novel method of incrementing
 
 While it may not be the most efficient way to increment a variable, as a demonstration of the flexibility of Django, a user's click count is incremented using the custom page view below -
@@ -122,5 +124,4 @@ def increment_click_count(request):
         click.save()
         return JsonResponse({'click_count': click.count})
     return JsonResponse({'error': 'Invalid request'}, status=400)
-```
-    
+```    
