@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from .models import Click
+from .models import Click, UserPreference
+from .forms import UserPreferenceForm
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
 from django.contrib.auth.forms import AuthenticationForm
@@ -53,3 +54,20 @@ def leaderboard(request):
     leaderboard_data = Click.objects.all().order_by('-count')
     return render(request, 'leaderboard.html', {'leaderboard_data': leaderboard_data})
 
+
+
+
+@login_required
+def update_btext(request):
+    # Ensure the UserPreference instance exists
+    user_preference, created = UserPreference.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        form = UserPreferenceForm(request.POST, instance=user_preference)
+        if form.is_valid():
+            form.save()
+            return redirect('index')  # Redirect to a success page
+    else:
+        form = UserPreferenceForm(instance=user_preference)
+
+    return render(request, 'update_btext.html', {'form': form})

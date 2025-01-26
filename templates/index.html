@@ -11,7 +11,7 @@
     <div class="container content">
     <h1>Welcome to the Button Clicking Project!</h1>
     <p>Click the button below to start the fun.</p>
-    <button id="clickButton">Click Me!</button>
+    <button id="clickButton">{{ request.user.userpreference.button_text }}</button>
     <p>Button clicked <span id="clickCount">{{ click_count }}</span> times.</p>
     <p> 
         <a href="{% url 'leaderboard' %}">Leaderboard</a> | 
