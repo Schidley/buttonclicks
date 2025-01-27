@@ -198,7 +198,7 @@ Extensive use was made of the linked Project board, and the plan was adapted acc
 Data is typed, and has both default values and validation measures upon editing. User preferences (button text) is created wih default
 values upon account creation, or on login if the associated account has no user preferences.
 <br>
-2.2 CRUD Functionality <br>
+2.2 CRUD Functionality - <br>
 Create -<br> User account, click count and user preferences. <br>
 Read -<br> User preferences are reflected in the button text, and click count is reflected in both the main button page, and the leaderboard. On the leaderboard, it is also associated with the username. <br>
 Update - <br> The click count updates on button click, and the button text can be updated with a form. <br>
@@ -214,12 +214,41 @@ def delete_preference(request):
     return redirect('index')  # Redirect to the index page   
 ```
 <br>
-2.3 - User Notifications <br>
+2.3 User Notifications - <br>
 The User is notified upon succesful login, by progress to main site, notified of each buton click with the CSRF token counter, and
 notifed upon successful button text change, or deletion of the button text record, by redirecting to the main page with the appropriate 
 change implemented.
 <br>
-2.4 - Forms and Validation <br>
+2.4 Forms and Validation - <br>
 There are several forms in the project. The 'Register' form has password fields validated by allauth, and the 'change button text' form 
 has validation to prevent an empty entry, to help distinguish clearing a stored text string, and deleting the record of that text string
 <br>
+
+### LO3
+
+3.1 Role Based Login and Registration - <br>
+The project makes it's online form register respondents as users. The admin has a superuser account, and can use the Django backend to
+promote other users to superusers, as and when the need arises. User accounts are protected within the app by CSRF tokens.<br>
+
+3.2 Reflect Login State - <br>
+The project's only functionality for non-logged in users is to either login or register. The login state is reflected in site 
+functionality, e.g the ability to click the button.<br>
+
+3.3 Access Control - <br>
+Access control is achieved in a couple of ways. Lines such as the below -
+`if preference.user == request.user:  # Ensure users can only delete their own preferences`
+ensure that a user only has access to their own preferences record. 
+The code block below 
+```
+ headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+```
+demonstrates another method, this exerpt from index.html showing the passing of CSRF tokens in the header. This ensures that clicks are
+strongly associated with a particular user <br>
+
+### LO4
+
+### LO5
+
