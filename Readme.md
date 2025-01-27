@@ -203,4 +203,13 @@ Create -<br> User account, click count and user preferences. <br>
 Read -<br> User preferences are reflected in the button text, and click count is reflected in both the main button page, and the leaderboard. On the leaderboard, it is also associated with the username. <br>
 Update - <br> The click count updates on button click, and the button text can be updated with a form. <br>
 Delete - <br> The 'delete' link on the button text form deletes the user preference record, leaving the button blank.
-Userpreference is created on login, register or editing of the button text, but it is possible to delete the userpreference and click the button with normal functionality with the link supplied on the 'update button text' form.
+Userpreference is created on login, register or editing of the button text, but it is possible to delete the userpreference and click the button with normal functionality with the link supplied on the 'update button text' form. The relevant delete view is included below for clarity.
+<br>
+```
+@login_required
+def delete_preference(request):
+    preference = get_object_or_404(UserPreference, user=request.user)
+    if preference.user == request.user:  # Ensure users can only delete their own preferences
+        preference.delete()
+    return redirect('index')  # Redirect to the index page   
+```
