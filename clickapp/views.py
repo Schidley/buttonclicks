@@ -13,6 +13,9 @@ def register_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
+
+            # Create a UserPreference instance for the new user
+            UserPreference.objects.get_or_create(user=user)
             return redirect('/')
     else:
         form = UserCreationForm()
@@ -27,6 +30,7 @@ def login_view(request):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
+                UserPreference.objects.get_or_create(user=user)
                 return redirect('/')
     else:
         form = AuthenticationForm()
