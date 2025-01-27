@@ -171,3 +171,36 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 Secret key handling was performed locally by defining a %SECRET_KEY% as a global enviroment variable, and adding env.py to gitignore,
 ensuring that the secret key has never been in a publicly accesable place, either on Heroku or in the public development repository.
+
+
+## Learning Objectives
+
+### LO1
+
+1.1 Front end design - <br>
+This was achieved with bespoke CSS, designed from the ground up to be responsive using Flexbox.
+I used few, high contrast colours to achieve accesibility and readability criteria.
+<br>
+1.2 Database - <br>
+I linked the deployed Django project to a provided PostGRES server.
+<br>
+1.3 Agile Methodology - <br>
+Extensive use was made of the linked Project board, and the plan was adapted according to testing, validation and expert advice.
+<br>
+1.4 Code Quality - <br>
+1.5 Documentation - <br>
+<br>
+<br>
+
+### LO2
+
+2.1 Database Development - <br>
+Data is typed, and has both default values and validation measures upon editing. User preferences (button text) is created wih default
+values upon account creation, or on login if the associated account has no user preferences.
+<br>
+2.2 CRUD Functionality
+Create - User account, click count and user preferences.
+Read - User preferences are reflected in the button text, and click count is reflected in both the main button page, and the leaderboard. On the leaderboard, it is also associated with the username.
+Update - The click count updates on button click, and the button text can be updated with a form.
+Delete - The 'delete' link on the button text form deletes the user preference record, leaving the button blank.
+Userpreference is created on login, register or editing of the button text, but it is possible to delete the userpreference and click the button with normal functionality with the link supplied on the 'update button text' form.
