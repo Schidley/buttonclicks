@@ -8,12 +8,15 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h2>Login</h2>
+   
     <form method="post">
+        <h1>Login</h1>
         {% csrf_token %}
         {{ form.as_p }}
+        <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
         <button type="submit">Login</button>
+        
     </form>
-    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a></p>
+    
 </body>
 </html>
