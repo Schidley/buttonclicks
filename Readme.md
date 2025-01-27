@@ -125,12 +125,25 @@ def increment_click_count(request):
         return JsonResponse({'click_count': click.count})
     return JsonResponse({'error': 'Invalid request'}, status=400)
 ```    
+## Tests
 ### WAVE Testing
 
 ![Wave_test_output](Wave2.png)
 
 The low element-per-page and high constrast, accesible design features helped immensely, and intelligent use of colour. <br><br>
 
-
-
 ![Wave_subject](WAVEoutput.png)
+
+### HTML Validation
+
+This was done with the W3schools html validator, input with copied source to avoid Django issues.
+
+![Html_passed](Htmlvalid.png)
+
+<br><br>
+
+### CSS Validation
+
+This was done with the W3schools css validator.
+
+![Css_test](CssTest.png)
