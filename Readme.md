@@ -149,6 +149,12 @@ This was done with the W3schools css validator.
 ![Css_test](CssTest.png)
 <br><br>
 
+### Lighthouse Validation
+
+This was achieved with Chrome's inbuilt developer tools
+
+![Lighthouse_test](Lighthouse.png)
+
 ## Deployment
 
 Deployment was handled on Heroku. This necessitated the creation of a Procfile, used to specify guinicon handling, and the setting of 
