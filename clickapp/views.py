@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .models import Click, UserPreference
@@ -70,4 +70,13 @@ def update_btext(request):
     else:
         form = UserPreferenceForm(instance=user_preference)
 
-    return render(request, 'update_btext.html', {'form': form})
+    return render(request, 'update_btext.html', {'form': form, 'preference': user_preference})
+
+
+@login_required
+def delete_preference(request):
+    preference = get_object_or_404(UserPreference, user=request.user)
+    if preference.user == request.user:  # Ensure users can only delete their own preferences
+        preference.delete()
+    return redirect('index')  # Redirect to the index page
+

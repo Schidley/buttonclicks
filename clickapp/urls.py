@@ -11,4 +11,5 @@ urlpatterns = [
     path('leaderboard/', views.leaderboard, name='leaderboard'),
     path('update_btext/', views.update_btext, name='update_btext'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
+    path('preferences/delete/', views.delete_preference, name='delete_preference'),
 ]

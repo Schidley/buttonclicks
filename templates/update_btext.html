@@ -9,11 +9,15 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Update Your Button Text</h1>
+    
     <form method="post">
+        <h1>Update Your Button Text</h1>
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Save</button>
+        
+        <a href="{% url 'delete_preference' %}">Delete Preference</a>
+        
     </form>
 </body>
 </html>
