@@ -213,3 +213,5 @@ def delete_preference(request):
         preference.delete()
     return redirect('index')  # Redirect to the index page   
 ```
+<br>
+2.3 - 
