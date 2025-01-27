@@ -198,9 +198,9 @@ Extensive use was made of the linked Project board, and the plan was adapted acc
 Data is typed, and has both default values and validation measures upon editing. User preferences (button text) is created wih default
 values upon account creation, or on login if the associated account has no user preferences.
 <br>
-2.2 CRUD Functionality
-Create - User account, click count and user preferences.
-Read - User preferences are reflected in the button text, and click count is reflected in both the main button page, and the leaderboard. On the leaderboard, it is also associated with the username.
-Update - The click count updates on button click, and the button text can be updated with a form.
-Delete - The 'delete' link on the button text form deletes the user preference record, leaving the button blank.
+2.2 CRUD Functionality <br>
+Create -<br> User account, click count and user preferences. <br>
+Read -<br> User preferences are reflected in the button text, and click count is reflected in both the main button page, and the leaderboard. On the leaderboard, it is also associated with the username. <br>
+Update - <br> The click count updates on button click, and the button text can be updated with a form. <br>
+Delete - <br> The 'delete' link on the button text form deletes the user preference record, leaving the button blank.
 Userpreference is created on login, register or editing of the button text, but it is possible to delete the userpreference and click the button with normal functionality with the link supplied on the 'update button text' form.
