@@ -215,3 +215,11 @@ def delete_preference(request):
 ```
 <br>
 2.3 - User Notifications <br>
+The User is notified upon succesful login, by progress to main site, notified of each buton click with the CSRF token counter, and
+notifed upon successful button text change, or deletion of the button text record, by redirecting to the main page with the appropriate 
+change implemented.
+<br>
+2.4 - Forms and Validation <br>
+There are several forms in the project. The 'Register' form has password fields validated by allauth, and the 'change button text' form 
+has validation to prevent an empty entry, to help distinguish clearing a stored text string, and deleting the record of that text string
+<br>
