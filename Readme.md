@@ -214,4 +214,4 @@ def delete_preference(request):
     return redirect('index')  # Redirect to the index page   
 ```
 <br>
-2.3 - 
+2.3 - User Notifications <br>
