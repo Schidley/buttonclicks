@@ -19,7 +19,8 @@ header {
     width: 100%;
     position: fixed;
     top: 0;
-    
+    border: 2px solid white; 
+    display: inline-block; 
 }
 
 .container {
