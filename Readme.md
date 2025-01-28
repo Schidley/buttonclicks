@@ -15,10 +15,24 @@ Gamers: People who enjoy simple games and challenges.
 
 Community Builders: Organizers looking to create a sense of camaraderie and engagement within their groups or organizations.
 
+### Recreating the project
+
+1. Clone the repo to your local machine with git clone
+2. Set up a venv with `python -m venv venv` and activate it with your OS specific method
+3. Install requirements with `pip install -r requirements.txt`
+4. Create a file named env.py in the project root directory and add the necessary environment variables. <br>
+`os.environ['DATABASE_URL'] = 'your_database_url_here'` <br>
+`os.environ['SECRET_KEY'] = 'your_secret_key_here'` <br>
+Make sure to add `#import env` to settings.py <br>
+5. Use `python manage.py migrate` to build the database schema
+6. Create a superuser with `python manage.py createsuperuser`
+7. Run the development server with `python manage.py runserver`
+8. Open your web browser and go to http://localhost:8000 to access the application.
+
 ### ERD overview
 
 The project uses models outlined in the following entity relationship diagram - 
-
+ 
 ![ERD](erd.png)
 
 The created_at and updated_at fields are automatically populated, but not currently used. A future feature was planned around them, to 
