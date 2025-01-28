@@ -15,6 +15,28 @@ Gamers: People who enjoy simple games and challenges.
 
 Community Builders: Organizers looking to create a sense of camaraderie and engagement within their groups or organizations.
 
+### Website screenshots
+
+Main page -
+
+![main](main.png)
+
+Register -
+
+![Register](reg.png)
+
+Login - 
+
+![login](login.png)
+
+Leaderboard - 
+
+![leaderboard](leaderboard.png)
+
+Update button text, including a link to delete the UserPreference record
+
+![buttontext](updatetext.png)
+
 ### Proof of principle - secure passing of variables
 
 While my project passes a click model, it does so by passing stringified JSON objects, complete with csrf tokens. A user and their clicks are strongly associated, and should there exist some method of taking
