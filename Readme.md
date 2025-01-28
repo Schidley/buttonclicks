@@ -110,7 +110,7 @@ clicks from another user, they would fail to be validated correctly. The code bl
             .catch(error => console.error('Error:', error));
 ```
 
-This approach made it helpful to set a CSRF_TRUSTED_ORIGINS variable in settings.py
+This approach made it helpful to set a CSRF_TRUSTED_ORIGINS variable in settings.py pointing to my development server. While not relevant in production code, it was left in to help demonstrate testing methods.
 
 ### Custom views - a novel method of incrementing
 
