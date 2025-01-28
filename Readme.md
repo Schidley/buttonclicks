@@ -77,6 +77,49 @@ def increment_click_count(request):
     return JsonResponse({'error': 'Invalid request'}, status=400)
 ```    
 ## Tests
+
+### Automated unit testing
+
+```
+class UserPreferenceTestCase(TestCase):
+    def setUp(self):
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        UserPreference.objects.create(user=self.user)
+
+    def test_user_preference_creation(self):
+        # Ensure UserPreference is created when the user is created
+        user_preference = UserPreference.objects.get(user=self.user)
+        self.assertIsNotNone(user_preference)
+        self.assertEqual(user_preference.button_text, 'Click Me!')
+
+class LoginViewTestCase(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user = User.objects.create_user(username='testuser', password='testpassword')
+        self.user_preference = UserPreference.objects.create(user=self.user)
+
+    def test_login_view(self):
+        # Ensure the login view works and creates a UserPreference if it doesn't exist
+        response = self.client.post('/login/', {'username': 'testuser', 'password': 'testpassword'})
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/')
+        user_preference = UserPreference.objects.get(user=self.user)
+        self.assertIsNotNone(user_preference)
+
+    def test_login_view_user_preference_creation(self):
+        # Delete the UserPreference and ensure it is created upon login
+        self.user_preference.delete()
+        response = self.client.post('/login/', {'username': 'testuser', 'password': 'testpassword'})
+        self.assertEqual(response.status_code, 302)
+        self.assertRedirects(response, '/')
+        user_preference = UserPreference.objects.get(user=self.user)
+        self.assertIsNotNone(user_preference)
+```
+
+Which generated the following output - 
+
+![automated_test_output](autotest.png)
+
 ### WAVE Testing
 
 ![Wave_test_output](Wave2.png)
@@ -201,6 +244,16 @@ strongly associated with a particular user <br>
 
 ### LO4
 
+4.1 Python Test Procedures - <br>
+Automated test procedures can be found [here](#tests). Additionally, Spencer wrote a short autoclicker to test my website's response to that. It was handled elegantly, and Spencer's score appropriately updated. - <br>
+
+4.2 JavaScript Test Procedures (if applicable) - <br>
+The project does not make use of Javascript. It briefly did to handle the click count increment, but this approach was discarded in 
+favour of achieving the result with a custom view. <br>
+
+4.3 Testing Documentation - <br>
+Tests are documented in this readme, in point 4.1 above, and under the [test](#tests) subheading
+
 ### LO5
 
 5.1 Version Control with Git and Github - <br>
@@ -280,47 +333,7 @@ AI was asked for input on clean stying, and helped to pick the colour palette in
  proper functionality. <br>
 
 8.4  Use AI tools to create automated unit tests - <br>
-AI was used to create the automated tests below - 
-
-```
-class UserPreferenceTestCase(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        UserPreference.objects.create(user=self.user)
-
-    def test_user_preference_creation(self):
-        # Ensure UserPreference is created when the user is created
-        user_preference = UserPreference.objects.get(user=self.user)
-        self.assertIsNotNone(user_preference)
-        self.assertEqual(user_preference.button_text, 'Click Me!')
-
-class LoginViewTestCase(TestCase):
-    def setUp(self):
-        self.client = Client()
-        self.user = User.objects.create_user(username='testuser', password='testpassword')
-        self.user_preference = UserPreference.objects.create(user=self.user)
-
-    def test_login_view(self):
-        # Ensure the login view works and creates a UserPreference if it doesn't exist
-        response = self.client.post('/login/', {'username': 'testuser', 'password': 'testpassword'})
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/')
-        user_preference = UserPreference.objects.get(user=self.user)
-        self.assertIsNotNone(user_preference)
-
-    def test_login_view_user_preference_creation(self):
-        # Delete the UserPreference and ensure it is created upon login
-        self.user_preference.delete()
-        response = self.client.post('/login/', {'username': 'testuser', 'password': 'testpassword'})
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, '/')
-        user_preference = UserPreference.objects.get(user=self.user)
-        self.assertIsNotNone(user_preference)
-```
-
-Which generated the following output - 
-
-![automated_test_output](autotest.png)
+AI was used to create the automated tests found at [test](#tests)
 
 8.5 Reflect on AI’s role in the development process and its impact on workflow - <br>
 
