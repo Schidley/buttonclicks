@@ -13,7 +13,10 @@ Social Media Enthusiasts: Individuals who enjoy participating in viral trends an
 
 Gamers: People who enjoy simple games and challenges.
 
-Community Builders: Organizers looking to create a sense of camaraderie and engagement within their groups or organizations.
+Community Builders: Organisers looking to create a sense of camaraderie and engagement within their groups or organizations.
+
+It also serves as a proof-of-concept for the security features of Django, using secure CSRF to administer button clicks in this case,
+but those measures could be used to protect sensitive data of all kinds.
 
 ### Recreating the project
 
