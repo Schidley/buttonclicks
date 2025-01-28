@@ -252,3 +252,15 @@ strongly associated with a particular user <br>
 
 ### LO5
 
+5.1 Version Control with Git and Github - <br>
+This repository is hosted on github, and was worked on locally on VScode. The project was confirmed working locally where possible 
+before uploading to github, ensuring all commits after major functionality changes are stable.<br>
+
+5.2 Secure Code Management - <br>
+The necessary SECRET_KEY variable is stored in env.py, which is then added to .gitignore. For remote hosting on Heroku, a different 
+secret key was used, protected with Heroku's mandatory two-factor authentication. <br>
+
+### LO6
+
+6.1 Deploy 
+
