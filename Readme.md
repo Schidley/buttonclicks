@@ -27,6 +27,12 @@ map periods of downtime across users.
 ### Wireframing
 
 The design was clean, high contrast and with few elements. The project retained these philosophies through to the final product.
+Monochrome design emphasizes simplicity, reducing visual clutter and distractions. This creates a clean, straightforward interface that's easy for users to navigate.
+By using a single color scheme, the focus remains on the content and functionality. Users can quickly understand what actions they need to take without being overwhelmed by too many colors.
+Monochrome designs often convey a modern, sophisticated, and professional look. This can give your project a sleek, contemporary feel that appeals to users who appreciate minimalism.
+Using one primary color ensures consistency across the entire application. This uniformity can make the app feel more cohesive and well-integrated.
+Monochrome design can enhance readability, especially when combined with high contrast. This can make your app more accessible to users with visual impairments or those who prefer clean, easily readable interfaces.
+Monochrome designs can make bold statements by leveraging contrast effectively. Important elements like buttons or alerts stand out more when they are the only elements with a different shade or a pop of color.
 
 ![wireframe](wireframe.png)
 
