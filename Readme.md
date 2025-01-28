@@ -24,6 +24,12 @@ The project uses models outlined in the following entity relationship diagram -
 The created_at and updated_at fields are automatically populated, but not currently used. A future feature was planned around them, to 
 map periods of downtime across users.
 
+### Wireframing
+
+The design was clean, high contrast and with few elements. The project retained these philosophies through to the final product.
+
+![wireframe](wireframe.png)
+
 ### Website screenshots
 
 Main page -
@@ -45,6 +51,20 @@ Leaderboard -
 Update button text, including a link to delete the UserPreference record
 
 ![buttontext](updatetext.png)
+
+### Responsive design
+
+Using Chrome developer mode, different screen resolutions were checked. Output is below - 
+
+large screens - 
+![responsivel](responsivelarge.png)
+
+tablet/laptop -
+![responsivem](Responsive.png)
+
+mobile - 
+
+![responsives](responsivesmall.png)
 
 ### Proof of principle - secure passing of variables
 
@@ -191,9 +211,45 @@ I linked the deployed Django project to a provided PostGRES server.
 Extensive use was made of the linked Project board, and the plan was adapted according to testing, validation and expert advice.
 <br>
 1.4 Code Quality - <br>
+Custom python code was generated to deal with incrementing count, through novel use of a view, see below - 
+```
+def increment_click_count(request):
+    if request.method == 'POST':
+        click, created = Click.objects.get_or_create(user=request.user)
+        click.count += 1
+        click.save()
+        return JsonResponse({'click_count': click.count})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+```
+
+The update text method is detailed below.
+```
+def update_btext(request):
+    # Ensure the UserPreference instance exists
+    user_preference, created = UserPreference.objects.get_or_create(user=request.user)
+
+    if request.method == 'POST':
+        form = UserPreferenceForm(request.POST, instance=user_preference)
+        if form.is_valid():
+            form.save()
+            return redirect('index')  # Redirect to a success page
+    else:
+        form = UserPreferenceForm(instance=user_preference)
+
+    return render(request, 'update_btext.html', {'form': form, 'preference': user_preference})
+```
+
+The code for deleting preferences is below. Please note the delete function, for CRUD functionality.
+```
+def delete_preference(request):
+    preference = get_object_or_404(UserPreference, user=request.user)
+    if preference.user == request.user:  # Ensure users can only delete their own preferences
+        preference.delete()
+    return redirect('index')  # Redirect to the index page
+```
+
 1.5 Documentation - <br>
-<br>
-<br>
+The ERD from design can be found here [ERD](#erd-overview), and wireframing can be found here [wireframe](#wireframing)
 
 ### LO2
 
