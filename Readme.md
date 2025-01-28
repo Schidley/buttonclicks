@@ -262,5 +262,16 @@ secret key was used, protected with Heroku's mandatory two-factor authentication
 
 ### LO6
 
-6.1 Deploy 
+6.1 Deploy Application to Cloud Platform - <br>
+The application can be found on Heroku, at this link https://buttonclickerapp-692aa9d470e4.herokuapp.com/
+<br>
 
+6.2 Document Deployment Process - <br>
+The deployment process can be found in this document - [Link here](#deployment)
+<br>
+
+6.3 Ensure Security in Deployment - <br>
+No passwords or secret keys were part of my repository at any commit. py.env was added to gitignore, and the assigned SECRET_KEY was 
+removed from the project prior to the earliest relevant commit to a public repository. <br>
+
+### LO7 
