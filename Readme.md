@@ -1,4 +1,3 @@
-Contents
 # Button clicking
 
 [Click the button at my deployment link!](https://buttonclickerapp-692aa9d470e4.herokuapp.com/)
