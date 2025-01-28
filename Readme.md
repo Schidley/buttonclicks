@@ -15,6 +15,15 @@ Gamers: People who enjoy simple games and challenges.
 
 Community Builders: Organizers looking to create a sense of camaraderie and engagement within their groups or organizations.
 
+### ERD overview
+
+The project uses models outlined in the following entity relationship diagram - 
+
+![ERD](erd.png)
+
+The created_at and updated_at fields are automatically populated, but not currently used. A future feature was planned around them, to 
+map periods of downtime across users.
+
 ### Website screenshots
 
 Main page -
