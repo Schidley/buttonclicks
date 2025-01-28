@@ -302,3 +302,22 @@ class UserPreference(models.Model):
 
 The click and UserPreference returns are not currently used, and are left in place for future features. The leaderboard pulls from the 
 click model directly.
+
+### LO8
+
+8.1 Use AI Tools to assist in code creation - <br>
+AI was used at the start of the project to generate Django-compatable python syntax from pseudocode. Where this was very helpful was in 
+saving time in looking up the precise syntaxes until I was more familiar, and also in highlighting where my soloution required a 
+completely different approach, such as moving the incrementing function from inline JS to a custom view implementation, reproduced below
+
+```
+def increment_click_count(request):
+    if request.method == 'POST':
+        click, created = Click.objects.get_or_create(user=request.user)
+        click.count += 1
+        click.save()
+        return JsonResponse({'click_count': click.count})
+    return JsonResponse({'error': 'Invalid request'}, status=400)
+```
+<br>
+8.2 Use AI tools to assist in debugging code - <br>
