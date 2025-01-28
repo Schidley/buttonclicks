@@ -275,3 +275,30 @@ No passwords or secret keys were part of my repository at any commit. py.env was
 removed from the project prior to the earliest relevant commit to a public repository. <br>
 
 ### LO7 
+
+7.1 Design and Implement a Custom Data Model - <br>
+
+The models designed for this project are included below. It would have been possible to unify these models, but this implementation 
+demonstrates different ways of inheriting into a custom model
+
+```
+
+class Click(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    count = models.IntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.user.username} - {self.count}"
+
+class UserPreference(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    button_text = models.CharField(max_length=100, default='Click Me!')
+
+    def __str__(self):
+        return self.user.username
+```
+
+The click and UserPreference returns are not currently used, and are left in place for future features. The leaderboard pulls from the 
+click model directly.
