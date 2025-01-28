@@ -470,24 +470,14 @@ The total click count is updated in real-time as users click the button.
 >  As a User, I Want to Receive Feedback on My Clicks
 Title: User Receives Click Feedback
 
-Description: As a user, I want to receive feedback (e.g., a sound or visual effect) when I click the button so that I know my click was registered.
+Description: As a user, I want to receive feedback (e.g., a sound or visual effect) when I click the button so that I know my click was
+ registered.
 
 Acceptance Criteria:
 
 A feedback mechanism (sound, animation, or visual effect) is triggered upon each click.
 
 The feedback is immediate and indicates the click was successful.
-
->  As a User, I Want to See My Click History
-Title: User Views Click History
-
-Description: As a user, I want to see my click history so that I can track my clicking activity over time.
-
-Acceptance Criteria:
-
-A history section displays the timestamps of my clicks.
-
-The history is updated in real-time as I click the button.
 
 ## Thanks
 
