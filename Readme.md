@@ -153,7 +153,7 @@ This was done with the W3schools css validator.
 
 This was achieved with Chrome's inbuilt developer tools
 
-![Lighthouse_test](Lighthouse.png)
+![Lighthouse_test](lighthouse.png)
 
 ## Deployment
 
