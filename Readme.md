@@ -3,6 +3,36 @@ Contents
 
 [Click the button at my deployment link!](https://buttonclickerapp-692aa9d470e4.herokuapp.com/)
 
+## Table of Contents
+
+- [Button clicking](#button-clicking)
+  - [Use case - Social Engagement Platform](#use-case---social-engagement-platform)
+  - [Recreating the project](#recreating-the-project)
+  - [ERD overview](#erd-overview)
+  - [Wireframing](#wireframing)
+  - [Website screenshots](#website-screenshots)
+  - [Responsive design](#responsive-design)
+  - [Proof of principle - secure passing of variables](#proof-of-principle---secure-passing-of-variables)
+  - [Custom views - a novel method of incrementing](#custom-views---a-novel-method-of-incrementing)
+- [Tests](#tests)
+  - [Automated unit testing](#automated-unit-testing)
+  - [WAVE Testing](#wave-testing)
+  - [HTML Validation](#html-validation)
+  - [CSS Validation](#css-validation)
+  - [Lighthouse Validation](#lighthouse-validation)
+- [Deployment](#deployment)
+- [Learning Objectives](#learning-objectives)
+  - [LO1](#lo1)
+  - [LO2](#lo2)
+  - [LO3](#lo3)
+  - [LO4](#lo4)
+  - [LO5](#lo5)
+  - [LO6](#lo6)
+  - [LO7](#lo7)
+  - [LO8](#lo8)
+- [User stories](#user-stories)
+- [Thanks](#thanks)
+
 
 ## Use case - Social Engagement Platform
 Objective:
