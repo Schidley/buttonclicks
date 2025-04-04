@@ -209,6 +209,11 @@ The low element-per-page and high constrast, accesible design features helped im
 
 ![Wave_subject](WAVEoutput.png)
 
+## Manual testing by section
+
+## Responsiveness test
+
+
 ### HTML Validation
 
 This was done with the W3schools html validator, input with copied source to avoid Django issues.
@@ -223,6 +228,12 @@ This was done with the W3schools css validator.
 
 ![Css_test](CssTest.png)
 <br><br>
+
+## User stories and features testing
+
+## Bugs solved
+
+## Bugs open
 
 ### Lighthouse Validation
 
