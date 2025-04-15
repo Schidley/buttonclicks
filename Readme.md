@@ -211,6 +211,10 @@ The low element-per-page and high constrast, accesible design features helped im
 
 ## Manual testing by section
 
+One overarching problem that was created by the project was that, during building and testing of the CSFR token functionality that protects each individual click, it became necessary to attempt to bypass that feature. One way that was attempted was to set various methods of bypassing checks in settings.py, including `SECURE_SSL_REDIRECT = False`.
+This caused my browser to regard 127.0.0.1 as an unsafe site, and prevented me from further debugging. Reverting the change did not fix the problem, and after some thought, and consultation with coach experts, the solution was to use Windows own DNS manager to perform a flushdns, to allow localhost to be reevaluated.
+
+
 ## Responsiveness test
 
 
