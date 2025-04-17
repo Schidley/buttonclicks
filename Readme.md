@@ -211,11 +211,10 @@ The low element-per-page and high constrast, accesible design features helped im
 
 ## Manual testing by section
 
-One overarching problem that was created by the project was that, during building and testing of the CSFR token functionality that protects each individual click, it became necessary to attempt to bypass that feature. One way that was attempted was to set various methods of bypassing checks in settings.py, including `SECURE_SSL_REDIRECT = False`.
+One overarching problem that was created by the project was that, during building and testing of the CSFR token functionality that 
+protects each individual click, it became necessary to attempt to bypass that feature. One way that was attempted was to set various 
+methods of bypassing checks in settings.py, including `SECURE_SSL_REDIRECT = False`.
 This caused my browser to regard 127.0.0.1 as an unsafe site, and prevented me from further debugging. Reverting the change did not fix the problem, and after some thought, and consultation with coach experts, the solution was to use Windows own DNS manager to perform a flushdns, to allow localhost to be reevaluated.
-
-
-## Responsiveness test
 
 
 ### HTML Validation
@@ -233,11 +232,11 @@ This was done with the W3schools css validator.
 ![Css_test](CssTest.png)
 <br><br>
 
-## User stories and features testing
-
 ## Bugs solved
 
 ## Bugs open
+
+Leaderboard redirect - The leaderboard is currently accesible publicly by URL. It is not yet decided if this is desirable, if a link should be added to the login screen to promote the button clicking communtiy to non-registered users, or if the page should be protected with a method like `{% if user.is_authenticated %}` added to the relevant page.
 
 ### Lighthouse Validation
 
@@ -261,6 +260,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 Secret key handling was performed locally by defining a %SECRET_KEY% as a global enviroment variable, and adding env.py to gitignore,
 ensuring that the secret key has never been in a publicly accesable place, either on Heroku or in the public development repository.
+
+![HerokuDeploy](heroku-dep.png)
 
 
 ## Learning Objectives
