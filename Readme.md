@@ -234,6 +234,17 @@ This was done with the W3schools css validator.
 
 ## Bugs solved
 
+Many of the solved bugs in this project related to the CSRF tokenisation that was put into place to protect the session itself, and each individual click as it added to the database, the details of code can be found above. This presented some unique coding challenges, as a lot of the error messages that were generated were non-verbose by design. 403 (forbidden) was very common.
+In solving these issues, debugging exceptions were left in the settings file for demonstration, see below - 
+`ALLOWED_HOSTS = ['buttonclickerapp-692aa9d470e4.herokuapp.com' , 'localhost','127.0.0.1',]`
+
+This line contains redundancy in localhost and 127.0.0.1 both being included, but part of this project was done under Gitpod, which draws a distinction. 
+
+`CSRF_TRUSTED_ORIGINS = ['https://8000-schidley-buttonclicks-ap5qqk7g37n.ws.codeinstitute-ide.net']`
+
+This line ensures that any token that originates from the development server is considered correct. This was toggled on and off through the development process, to get an overview of what stage any particular error was being caused at.
+
+
 ## Bugs open
 
 Leaderboard redirect - The leaderboard is currently accesible publicly by URL. It is not yet decided if this is desirable, if a link should be added to the login screen to promote the button clicking communtiy to non-registered users, or if the page should be protected with a method like `{% if user.is_authenticated %}` added to the relevant page.
